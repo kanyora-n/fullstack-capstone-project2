@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const connectToDatabase = require('../db');
+const connectToDatabase = require('../models/db');
 
 router.get('/', async (req, res) => {
     try {
@@ -32,7 +32,7 @@ router.get('/:id', async (req, res) => {
         const id = req.params.id;
 
         // Task 3: Find a specific gift by ID using the collection.findOne method and store in constant called gift
-        const id = req.params.id;
+
         const gift = await collection.findOne({ _id: new ObjectId(id) }); // Use ObjectId
 
         if (!gift) {
