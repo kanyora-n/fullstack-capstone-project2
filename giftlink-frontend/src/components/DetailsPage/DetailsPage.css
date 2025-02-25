@@ -1,36 +1,73 @@
 /* Style for image placeholder */
 .image-placeholder-large {
     /* Task 1 styling */
-    {{insert code here}}
+    width: 100%;
+    height: 400px;
+    position: relative;
+    background-color: #f0f0f0; /* Light gray background */
 }
 
 /* Style for product image */
-.product-image-large {
+.details-image {
     /* Task 2 styling */
-    {{insert code here}}
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 /* Style for 'no image available' placeholder */
 .no-image-available-large {
     /* Task 3 styling */
-    {{insert code here}}
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: #ddd; /* Slightly darker gray */
+    font-size: 1.2rem;
+    color: #555;
 }
 
 /* Style for card header */
 .card-header {
     /* Task 4 styling */
-    {{insert code here}}
+    background-color: #007bff; /* Example: Bootstrap primary color */
+    color: white;
 }
 
 /* Style for details title */
 .details-title {
     /* Task 5 styling */
-    {{insert code here}}
+    font-size: 1.8rem;
+    color: #333;
 }
 
 /* Style for comments section */
 .comments-section {
     /* Task 6 styling */
-    {{insert code here}}
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f9f9f9; /* Light background */
+    border-radius: 5px;
 }
 
+.comments-section h3 {
+    margin-bottom: 15px;
+}
+
+.comments-section .card {
+    margin-bottom: 10px;
+}
+
+.comments-section .card-body {
+    padding: 10px;
+}
+
+.comments-section .comment-author {
+    font-weight: bold;
+    color: #007bff;
+}
+
+.comments-section .comment-text {
+    margin-top: 5px;
+}
