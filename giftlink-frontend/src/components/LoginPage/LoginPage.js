@@ -47,6 +47,7 @@ function LoginPage() {
                         </div>
 
           {/* insert code here to create a button that performs the `handleLogin` function on click */}
+                <button className="btn btn-primary w-100" onClick={handleLogin}>Login</button>
           
                 <p className="mt-4 text-center">
                     New here? <a href="/app/register" className="text-primary">Register Here</a>
