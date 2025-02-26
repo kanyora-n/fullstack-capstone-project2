@@ -1,26 +1,191 @@
 /* Task 1: Style the search input field */
 .search-input {
     /* Insert specific CSS properties here */
+    width: 75%;
+    margin-right: 1rem;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
 }
 
 /* Task 2: Style the search button */
 .search-button {
     /* Insert specific CSS properties here */
+    padding: 0.5rem 1rem;
+    background-color: #007bff; /* Example: Bootstrap primary color */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.search-button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
 }
 
 /* Task 3: Customize dropdown filters */
 .dropdown-filter {
     /* Insert specific CSS properties here */
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    width: 100%; /* Make dropdowns full width */
+    margin-bottom: 0.5rem; /* Add spacing between dropdowns */
 }
 
 /* Task 4: Style the age range slider */
 .age-range-slider {
     /* Insert specific CSS properties here */
+    width: 100%;
+    margin-top: 0.5rem;
+}
+
+.age-range-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background-color: #007bff;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.age-range-slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background-color: #007bff;
+    border-radius: 50%;
+    cursor: pointer;
 }
 
 /* Task 5: Enhance search results cards appearance */
 .search-results-card {
     /* Insert specific CSS properties here */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    overflow: hidden; /* Ensure content doesn't overflow */
+}
+
+.search-results-card img {
+    width: 100%;
+    height: 200px; /* Adjust as needed */
+    object-fit: cover;
+}
+
+.search-results-card .card-body {
+    padding: 1rem;
+}
+
+.search-results-card .card-title {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.search-results-card .card-text {
+    font-size: 1rem;
+    color: #555;
+}
+
+.search-results-card .card-footer {
+    padding: 1rem;
+    background-color: #f8f9fa; /* Light background for footer */
+    border-top: 1px solid #eee;
 }
 
 /* Additional placeholders for tasks 6 to 10 */
+/* Task 6: Style the "No products found" alert message */
+.alert-info {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 0.75rem 1.25rem;
+    margin-top: 1rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+}
+
+/* Task 7: Apply a hover effect to search results cards */
+.search-results-card {
+    /* ... other styles ... */
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.search-results-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Task 8: Ensure images in search results are displayed appropriately */
+.card-img-top {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Task 9: Create a responsive layout for search results on various devices */
+@media (max-width: 768px) {
+    .search-results-card {
+        flex-direction: column; /* Stack items vertically on smaller screens */
+    }
+
+    .search-results-card img {
+        height: auto; /* Allow image height to adjust */
+    }
+
+    .search-results-card .card-body {
+        padding: 0.75rem; /* Adjust padding for smaller screens */
+    }
+
+    .search-results-card .card-title {
+        font-size: 1.1rem; /* Adjust font size for smaller screens */
+    }
+}
+
+/* Task 10: Overall page styling for a cohesive and user-friendly design */
+.search-page {
+    padding: 2rem;
+    font-family: sans-serif; /* Example: Use a sans-serif font */
+}
+
+.filter-section {
+    background-color: #f8f9fa; /* Light background for filter section */
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.filter-section h5 {
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.filter-section label {
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.search-results {
+    margin-top: 2rem;
+}
+
+/* Ensure text is readable against background colors */
+.search-results-card .card-body,
+.search-results-card .card-footer {
+    background-color: white; /* Ensure card content has white background */
+}
+
+/* Style interactive elements (buttons, inputs) for clear visibility and usability */
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
