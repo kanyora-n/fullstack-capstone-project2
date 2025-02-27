@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-
+import { useNavigate } from 'react-router-dom'; // Task 3
+import useAppContext from '../context/AuthContext'; // Task 2
+import urlConfig from '../config'; // Task 1
 import './RegisterPage.css';
 
 function RegisterPage() {
@@ -9,6 +11,9 @@ function RegisterPage() {
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [showerr, setShowerr] = useState(''); // Task 4
+    const navigate = useNavigate(); // Task 5
+    const { setIsLoggedIn } = useAppContext(); // Task 5
 
     // insert code here to create handleRegister function and include console.log
     const handleRegister = async () => {
@@ -18,6 +23,54 @@ function RegisterPage() {
         console.log("Email:", email);
         console.log("Password:", password);
         // Implement API call for registration later
+        try {
+            const response = await fetch(`${urlConfig.backendUrl}/api/auth/register`, {
+                method: 'POST', // Task 6
+                headers: { // Task 7
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ // Task 8
+                    firstName: firstName,
+                    lastName: lastName,
+                    email: email,
+                    password: password,
+                }),
+            });
+    
+            if (!response.ok) {
+                // Handle non-successful responses (e.g., 400, 500)
+                const errorData = await response.json();
+                setShowerr(errorData.message || 'Registration failed');
+                return;
+            }
+    
+            // Task 1: Access data coming from fetch API
+            const json = await response.json();
+
+            if (json.authtoken) {
+                // Task 2: Set user details
+                sessionStorage.setItem('auth-token', json.authtoken);
+                sessionStorage.setItem('name', firstName);
+                sessionStorage.setItem('email', json.email);
+
+                // Task 3: Set the state of user to logged in using useAppContext
+                setIsLoggedIn(true);
+
+                // Task 4: Navigate to the MainPage after logging in
+                navigate('/app');
+            } else {
+                // Task 5: Set an error message if the registration fails
+                if (json.error) {
+                    setShowerr(json.error);
+                } else {
+                    setShowerr("Registration failed"); // Default error message
+                }
+            }
+    
+        } catch (e) {
+            console.log("Error fetching details: " + e.message);
+            setShowerr('Network error or server unavailable');
+        }
     };
 
          return (
@@ -60,6 +113,7 @@ function RegisterPage() {
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                             />
+                            {showerr && <p className="text-danger">{showerr}</p>}
                         </div>
                         <div className="mb-4">
                             <label htmlFor="password" className="form-label">Password</label><br />
