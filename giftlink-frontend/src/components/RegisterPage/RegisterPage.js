@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // Task 3
 import useAppContext from '../context/AuthContext'; // Task 2
-import urlConfig from '../config'; // Task 1
+import { urlConfig } from '../config'; // Task 1
 import './RegisterPage.css';
 
 function RegisterPage() {
