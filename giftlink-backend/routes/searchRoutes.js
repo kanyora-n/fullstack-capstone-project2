@@ -29,7 +29,7 @@ router.get('/', async (req, res) => {
         const collection = db.collection('gifts');
         const filteredGifts = await collection.find(query).toArray();
 
-        res.json(filteredGifts)
+        res.json(filteredGifts);
 
     } catch (error) {
         console.error('Error searching gifts:', error);
