@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import useAppContext from '../context/AuthContext';
+import useAppContext from '../../context/AuthContext';
 import { urlConfig } from '../../config';
 import './LoginPage.css';
 
