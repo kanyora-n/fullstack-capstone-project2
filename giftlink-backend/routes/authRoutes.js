@@ -106,4 +106,59 @@ router.post('/login', async (req, res) => {
     }
 });
 
+
+// Update route
+router.put('/update', async (req, res) => {
+    try {
+        // Task 2: Validate the input using validationResult and return appropriate message if there is an error.
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            logger.error("Validation errors in update request", errors.array());
+            return res.status(400).json({ errors: errors.array() });
+        }
+
+        // Task 3: Check if email is present in the header and throw an appropriate error message if not present.
+        const email = req.headers.email;
+        if (!email) {
+            logger.error('Email not found in the request headers');
+            return res.status(400).json({ error: "Email not found in the request headers" });
+        }
+
+        // Task 4: Connect to giftsdb in MongoDB through connectToDatabase in db.js and access users collection.
+        const db = await connectToDatabase();
+        const collection = db.collection("users");
+
+        // Task 5: Access the user details
+        const existingUser = await collection.findOne({ email });
+
+        if (!existingUser) {
+            return res.status(404).json({ error: "User not found" });
+        }
+
+        // Task 6: Update user credentials in the database
+        const updatedUser = await collection.findOneAndUpdate(
+            { email },
+            { $set: req.body }, // Assuming req.body contains the fields to update
+            { returnDocument: 'after' }
+        );
+
+        if (!updatedUser.value) {
+            return res.status(500).json({ error: "Failed to update user" });
+        }
+
+        // Task 7: Create JWT authentication with user id as payload using secret key from .env file
+        const payload = {
+            user: {
+                id: updatedUser.value._id.toString(),
+            },
+        };
+
+        const authtoken = jwt.sign(payload, jwtSecret);
+
+        res.json({ authtoken });
+    } catch (e) {
+        return res.status(500).send('Internal server error');
+    }
+});
+
 module.exports = router;
