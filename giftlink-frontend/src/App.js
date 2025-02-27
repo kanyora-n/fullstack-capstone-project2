@@ -8,6 +8,7 @@ import SearchPage from './components/SearchPage/SearchPage';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
+import Profile from './components/Profile/Profile'; // Task 6: Import Profile component
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
           <Route path="/app/register" element={<RegisterPage />} />
           <Route path="/app/product/:productId" element={<DetailsPage />} />
           <Route path="/app/search" element={<SearchPage />} />
+          
           
         </Routes>
         </>
