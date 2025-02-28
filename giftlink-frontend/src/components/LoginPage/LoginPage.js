@@ -112,6 +112,8 @@ function LoginPage() {
                     New here? <a href="/app/register" className="text-primary">Register Here</a>
                 </p>
 
+                {incorrect && <p className="text-danger">{incorrect}</p>} {/* Display error message */}
+
             </div>
           </div>
         </div>
