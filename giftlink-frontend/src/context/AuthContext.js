@@ -5,6 +5,7 @@ const AppContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userName, setUserName] = useState("");
+  // eslint-disable-next-line no-unused-vars
   const [userEmail, setUserEmail] = useState("");
 
   return (
