@@ -13,7 +13,7 @@ function LoginPage() {
     const [incorrect, setIncorrect] = useState(''); // Task 4: Include a state for the error message.
     const navigate = useNavigate(); // Task 5: Create a local variable for navigate.
     const bearerToken = sessionStorage.getItem('auth-token'); // Task 5: Create a local variable for bearerToken.
-    const { setIsLoggedIn } = useAppContext(); // Task 5: Create a local variable for setIsLoggedIn.
+    const { setIsLoggedIn, setUserName, setUserEmail } = useAppContext(); // Task 5: Create a local variable for setIsLoggedIn.
 
     useEffect(() => {
         if (bearerToken) {
